@@ -4,6 +4,7 @@
 
 - **10 个音色**：2 个在线 Breeze 自定义音色（需要你自己的 API Key）+ 8 个离线中文女声
 - **离线可用**：离线音色包下载一次后，断网也能说话
+- **朗读频率限制**：自动朗读最小间隔可设「不限 / 30 秒 / 60 秒 / 3 分钟」，不会一直说话
 - **插件本体很小**：代码约 40KB，模型不进安装包，首次按需下载
 - **不修改 dsh-pet 的任何文件**，装完即用
 
@@ -31,11 +32,14 @@
 
 DSH → 插件市场 → 搜索「大肥鱼语音」或 `dsh-pet-voice-fishy` → 安装 → 重启 DSH。
 
-### 方式二：Gitee 直链一键安装（中国用户，不用 GitHub）
+### 方式二：GitHub 直链一键安装（推荐，国内可用 gh-proxy 加速）
 
 ```powershell
-Invoke-WebRequest -Uri "https://gitee.com/<你的Gitee用户名>/bigfish/raw/master/install.ps1" -OutFile "$env:TEMP\dsh-voice-install.ps1"
-powershell -ExecutionPolicy Bypass -File "$env:TEMP\dsh-voice-install.ps1" -Url "https://gitee.com/<你的Gitee用户名>/bigfish/raw/master/dsh-pet-voice-fishy-0.2.0.tgz"
+# 国内下载下面这个 tgz 如果慢，可以在链接前加 https://gh-proxy.com/ 前缀
+Invoke-WebRequest -Uri "https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v0.2.0/dsh-pet-voice-fishy-0.2.0.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
+cd $env:USERPROFILE\.dsh\profiles\desktop
+pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.npmmirror.com
+# 再把 dsh-pet-voice-fishy 加进 package.json 的 dsh.profile.bundles
 ```
 
 ### 方式三：本地安装
@@ -54,9 +58,10 @@ pnpm add file:D:\path\to\dsh-pet-voice-fishy-0.2.0.tgz --registry=https://regist
 
 1. 打开 设置 → **大肥鱼语音**；
 2. 「气泡朗读」开关控制是否朗读，音量滑杆调音量；
-3. 「音色」里点一下切换，点「试听」先听声音；
-4. 想用离线音色：在「离线音色（断网可用）」里点 **下载**（约 348MB，有进度条），装完选任意离线女声；
-5. 想用鱼鱼酱 / 鱼鱼姐：在「自定义音色（Breeze 在线）」里粘贴你的 Breeze API Key 并保存。
+3. 「朗读频率」选择自动朗读的最小间隔（不限 / 30 秒 / 60 秒 / 3 分钟；主动点击不受限）；
+4. 「音色」里点一下切换，点「试听」先听声音；
+5. 想用离线音色：在「离线音色（断网可用）」里点 **下载**（约 348MB，有进度条），装完选任意离线女声；
+6. 想用鱼鱼酱 / 鱼鱼姐：在「自定义音色（Breeze 在线）」里粘贴你的 Breeze API Key 并保存。
 
 离线音色包下载完成后即可断网使用；在线音色需要联网和有效的 API Key。
 
