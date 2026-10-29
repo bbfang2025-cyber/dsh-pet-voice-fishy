@@ -1,0 +1,4 @@
+# 大肥鱼语音：只 insert 自己这一行，不替换任何官方组件
+- insert:
+    - id: dsh-pet-voice-fishy
+      name: 'dsh-pet-voice-fishy'

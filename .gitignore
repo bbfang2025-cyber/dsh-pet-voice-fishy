@@ -1,0 +1,9 @@
+node_modules/
+*.tgz
+dist/
+tools/
+market/repo/node_modules/
+release/
+_archive/
+.venv/
+*.log

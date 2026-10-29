@@ -1,0 +1,71 @@
+{
+  "name": "dsh-pet-voice-fishy",
+  "version": "0.2.0",
+  "description": "大肥鱼语音：让 DSH 桌宠的气泡开口说话。在线 Breeze 自定义音色 + 离线 Kokoro 中文女声（模型按需下载，断网可用）。",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "assets",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "icon": "assets/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy.git"
+  },
+  "homepage": "https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy#readme",
+  "bugs": {
+    "url": "https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "tts",
+    "voice",
+    "desktop-pet",
+    "offline",
+    "kokoro",
+    "sherpa-onnx"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [],
+      "platform": "web"
+    },
+    "compatibility": {
+      "dshReleases": {
+        "0.2.0-rc.1": "compatible",
+        "0.2.0-rc.2": "compatible",
+        "0.2.1-rc.2": "compatible"
+      }
+    }
+  },
+  "dependencies": {
+    "seek-bzip": "^2.0.0",
+    "ws": "^8.22.0"
+  },
+  "optionalDependencies": {
+    "sherpa-onnx-node": "^2.0.1"
+  },
+  "devDependencies": {
+    "react": "^19.3.1"
+  }
+}

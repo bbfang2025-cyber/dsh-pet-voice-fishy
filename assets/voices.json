@@ -1,0 +1,197 @@
+{
+  "version": 2,
+  "defaultVoice": "breeze-yuyujiang",
+  "voices": [
+    {
+      "id": "breeze-yuyujiang",
+      "name": "鱼鱼酱",
+      "desc": "你的自定义音色：软糯清甜少女音 · 语速 1.31x",
+      "engine": "breeze",
+      "online": true,
+      "tags": [
+        "自定义",
+        "少女",
+        "默认"
+      ],
+      "params": {
+        "voice": "voc_gr2epm8r2qvp",
+        "speed": 1.3125,
+        "model": "breeze-tts-2"
+      }
+    },
+    {
+      "id": "breeze-yuyujie",
+      "name": "鱼鱼姐",
+      "desc": "你的自定义音色：御姐音 · 语速 1.15x",
+      "engine": "breeze",
+      "online": true,
+      "tags": [
+        "自定义",
+        "御姐"
+      ],
+      "params": {
+        "voice": "voc_3zf6t2tvxkdn",
+        "speed": 1.15,
+        "model": "breeze-tts-2"
+      }
+    },
+    {
+      "id": "kokoro-41",
+      "name": "奶糖鱼",
+      "desc": "离线萌系：音调最高、奶甜软糯",
+      "engine": "local",
+      "online": false,
+      "tags": [
+        "离线",
+        "萌系"
+      ],
+      "params": {
+        "pack": "kokoro",
+        "model": "kokoro-multi-lang-v1_1",
+        "kind": "kokoro",
+        "sid": 41,
+        "speed": 1
+      }
+    },
+    {
+      "id": "kokoro-23",
+      "name": "果冻鱼",
+      "desc": "离线萌系：清亮带点俏皮",
+      "engine": "local",
+      "online": false,
+      "tags": [
+        "离线",
+        "萌系"
+      ],
+      "params": {
+        "pack": "kokoro",
+        "model": "kokoro-multi-lang-v1_1",
+        "kind": "kokoro",
+        "sid": 23,
+        "speed": 1
+      }
+    },
+    {
+      "id": "kokoro-40",
+      "name": "泡泡鱼",
+      "desc": "离线萌系：软乎乎的少女音",
+      "engine": "local",
+      "online": false,
+      "tags": [
+        "离线",
+        "萌系"
+      ],
+      "params": {
+        "pack": "kokoro",
+        "model": "kokoro-multi-lang-v1_1",
+        "kind": "kokoro",
+        "sid": 40,
+        "speed": 1
+      }
+    },
+    {
+      "id": "kokoro-54",
+      "name": "团子鱼",
+      "desc": "离线萌系：圆润黏人的小嗓音",
+      "engine": "local",
+      "online": false,
+      "tags": [
+        "离线",
+        "萌系"
+      ],
+      "params": {
+        "pack": "kokoro",
+        "model": "kokoro-multi-lang-v1_1",
+        "kind": "kokoro",
+        "sid": 54,
+        "speed": 1
+      }
+    },
+    {
+      "id": "kokoro-46",
+      "name": "冷月鱼",
+      "desc": "离线御姐：低沉冷静、气场足",
+      "engine": "local",
+      "online": false,
+      "tags": [
+        "离线",
+        "御姐"
+      ],
+      "params": {
+        "pack": "kokoro",
+        "model": "kokoro-multi-lang-v1_1",
+        "kind": "kokoro",
+        "sid": 46,
+        "speed": 1
+      }
+    },
+    {
+      "id": "kokoro-29",
+      "name": "知性鱼",
+      "desc": "离线御姐：温柔知性、娓娓道来",
+      "engine": "local",
+      "online": false,
+      "tags": [
+        "离线",
+        "御姐"
+      ],
+      "params": {
+        "pack": "kokoro",
+        "model": "kokoro-multi-lang-v1_1",
+        "kind": "kokoro",
+        "sid": 29,
+        "speed": 1
+      }
+    },
+    {
+      "id": "kokoro-13",
+      "name": "低语鱼",
+      "desc": "离线御姐：轻声细语、耳边低语",
+      "engine": "local",
+      "online": false,
+      "tags": [
+        "离线",
+        "御姐"
+      ],
+      "params": {
+        "pack": "kokoro",
+        "model": "kokoro-multi-lang-v1_1",
+        "kind": "kokoro",
+        "sid": 13,
+        "speed": 1
+      }
+    },
+    {
+      "id": "kokoro-57",
+      "name": "夜莺鱼",
+      "desc": "离线御姐：偏中性的成熟女声",
+      "engine": "local",
+      "online": false,
+      "tags": [
+        "离线",
+        "御姐"
+      ],
+      "params": {
+        "pack": "kokoro",
+        "model": "kokoro-multi-lang-v1_1",
+        "kind": "kokoro",
+        "sid": 57,
+        "speed": 1
+      }
+    }
+  ],
+  "packs": {
+    "kokoro": {
+      "name": "离线音色包 · Kokoro 中文女声",
+      "desc": "一次下载约 348MB，8 个离线女声全部可用（断网也能说）",
+      "model": "kokoro-multi-lang-v1_1",
+      "kind": "kokoro",
+      "sizeMB": 348,
+      "urls": [
+        "https://edgeone.gh-proxy.com/https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-multi-lang-v1_1.tar.bz2",
+        "https://gh-proxy.com/https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-multi-lang-v1_1.tar.bz2",
+        "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/kokoro-multi-lang-v1_1.tar.bz2"
+      ]
+    }
+  }
+}
