@@ -1,5 +1,7 @@
 # 大肥鱼语音（dsh-pet-voice-fishy）
 
+> 当前版本：**V1.0**（package `1.0.0`）
+
 给 [dsh-pet](https://github.com/PC2005-cloud/dsh-pet) 的**网页桌宠**配音：桌宠冒气泡 / 碎碎念时，自动把气泡里的文字念出来。
 
 - **10 个音色**：2 个在线 Breeze 自定义音色（需要你自己的 API Key）+ 8 个离线中文女声
@@ -37,7 +39,7 @@ DSH → 插件市场 → 搜索「大肥鱼语音」或 `dsh-pet-voice-fishy` �
 
 ```powershell
 # 国内下载下面这个 tgz 如果慢，可以在链接前加 https://gh-proxy.com/ 前缀
-Invoke-WebRequest -Uri "https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v0.2.0/dsh-pet-voice-fishy-0.2.0.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
+Invoke-WebRequest -Uri "https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.0.0/dsh-pet-voice-fishy-1.0.0.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
 cd $env:USERPROFILE\.dsh\profiles\desktop
 pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.npmmirror.com
 # 再把 dsh-pet-voice-fishy 加进 package.json 的 dsh.profile.bundles
@@ -47,7 +49,7 @@ pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.np
 
 ```powershell
 cd $env:USERPROFILE\.dsh\profiles\desktop
-pnpm add file:D:\path\to\dsh-pet-voice-fishy-0.2.0.tgz --registry=https://registry.npmmirror.com
+pnpm add file:D:\path\to\dsh-pet-voice-fishy-1.0.0.tgz --registry=https://registry.npmmirror.com
 # 然后在 profile 的 package.json 里把 "dsh-pet-voice-fishy" 加进 dsh.profile.bundles
 ```
 
