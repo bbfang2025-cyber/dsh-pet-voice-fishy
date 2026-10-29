@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>大肥鱼语音 · 国内下载</title>
+<style>
+  :root { color-scheme: light; }
+  body { font-family: -apple-system, "Microsoft YaHei", system-ui, sans-serif; margin: 0; background: #f5f7fb; color: #1f2430; }
+  .wrap { max-width: 780px; margin: 0 auto; padding: 36px 20px 60px; }
+  .hero { text-align: center; margin-bottom: 24px; }
+  .hero img { width: 96px; height: 96px; border-radius: 24px; box-shadow: 0 8px 24px rgba(91,140,255,.25); }
+  h1 { font-size: 26px; margin: 14px 0 6px; }
+  .sub { color: #6b7280; font-size: 14px; margin: 0; }
+  .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 16px; padding: 20px; margin: 16px 0; }
+  .card h2 { font-size: 16px; margin: 0 0 10px; }
+  .btn { display: inline-block; text-decoration: none; background: #5b8cff; color: #fff; padding: 11px 18px; border-radius: 10px; font-size: 15px; font-weight: 600; margin: 6px 8px 6px 0; }
+  .btn.secondary { background: #eef3ff; color: #3b6fe0; }
+  pre { background: #f3f4f6; border-radius: 8px; padding: 12px 14px; overflow-x: auto; font-size: 12.5px; line-height: 1.6; }
+  .note { color: #6b7280; font-size: 13px; line-height: 1.7; }
+  .tag { display: inline-block; background: #eaf6ee; color: #18794e; border-radius: 999px; padding: 2px 10px; font-size: 12px; margin-left: 6px; }
+  a { color: #3b6fe0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <img src="https://cdn.jsdelivr.net/gh/bbfang2025-cyber/dsh-pet-voice-fishy@main/assets/icon.png" alt="大肥鱼语音">
+    <h1>大肥鱼语音 <span class="tag">国内可直连</span></h1>
+    <p class="sub">让 DSH 桌宠的气泡开口说话 · 10 个音色 · 支持离线 · 当前版本 V1.1.0</p>
+  </div>
+
+  <div class="card">
+    <h2>① 下载插件包（免 VPN，国内直连）</h2>
+    <p class="note">下面是 GitHub 加速线路，点开即可下载，文件与 GitHub Releases 完全一致（V1.1.0，约 29KB）。</p>
+    <a class="btn" href="https://gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.1.0/dsh-pet-voice-fishy-1.1.0.tgz">主线路（gh-proxy）</a>
+    <a class="btn secondary" href="https://ghfast.top/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.1.0/dsh-pet-voice-fishy-1.1.0.tgz">备用 1（ghfast）</a>
+    <a class="btn secondary" href="https://cdn.jsdelivr.net/gh/bbfang2025-cyber/dsh-pet-voice-fishy@main/release/dsh-pet-voice-fishy-1.1.0.tgz">备用 2（jsDelivr CDN）</a>
+  </div>
+
+  <div class="card">
+    <h2>② 一键安装（复制到 PowerShell 运行）</h2>
+    <p class="note">会自动下载（走国内加速）、装进 DSH、加进插件列表；装完重启 DSH。</p>
+    <pre>$u = "https://gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.1.0/dsh-pet-voice-fishy-1.1.0.tgz"
+$tgz = "$env:TEMP\dsh-pet-voice-fishy.tgz"
+Invoke-WebRequest -Uri $u -OutFile $tgz
+$p = "$env:USERPROFILE\.dsh\profiles\desktop"
+Set-Location $p
+pnpm remove dsh-pet-voice 2>$null
+pnpm add "file:$tgz" --registry=https://registry.npmmirror.com
+node -e "const fs=require('fs');const f='package.json';const j=JSON.parse(fs.readFileSync(f,'utf8'));j.dsh=j.dsh||{};j.dsh.profile=j.dsh.profile||{};const b=(j.dsh.profile.bundles||[]).filter(x=>x!=='dsh-pet-voice');if(!b.includes('dsh-pet-voice-fishy'))b.push('dsh-pet-voice-fishy');j.dsh.profile.bundles=b;fs.writeFileSync(f,JSON.stringify(j,null,2))"
+Write-Host "安装完成，请完全退出并重启 DSH"</pre>
+  </div>
+
+  <div class="card">
+    <h2>③ 离线音色包也不用翻墙</h2>
+    <p class="note">插件里点「离线音色 → 下载」时，模型会走 <b>gh-proxy / ghfast 等国内加速线路</b>自动下载（约 348MB，支持断点续传），不需要 VPN。</p>
+  </div>
+
+  <div class="card">
+    <h2>④ 功能速览</h2>
+    <p class="note">
+      自动朗读桌宠碎碎念气泡；左键点气泡朗读内容；右键/长按气泡再读一遍；点桌宠回互动台词；<br>
+      10 个音色（2 个在线自定义 + 8 个离线中文女声）；朗读频率限制（不限/30 秒/60 秒/3 分钟）；音量、开关、语速可调。
+    </p>
+    <p class="note">
+      源码（加速访问）：<a href="https://gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy">点击打开</a> ·
+      更新记录：<a href="https://gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/blob/main/CHANGELOG.md">CHANGELOG</a>
+    </p>
+  </div>
+</div>
+</body>
+</html>
