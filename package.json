@@ -1,6 +1,6 @@
 {
   "name": "dsh-pet-voice-fishy",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "大肥鱼语音：让 DSH 桌宠的气泡开口说话。在线 Breeze 自定义音色 + 离线 Kokoro 中文女声（模型按需下载，断网可用）。",
   "type": "module",
   "main": "lib/index.js",
@@ -15,6 +15,7 @@
     "assets",
     "cordis.patch.yml",
     "README.md",
+    "AGENT-INSTALL.md",
     "LICENSE",
     "CHANGELOG.md"
   ],

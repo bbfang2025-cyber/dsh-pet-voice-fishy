@@ -1,6 +1,6 @@
 # 大肥鱼语音（dsh-pet-voice-fishy）
 
-> 当前版本：**V1.0**（package `1.0.0`）
+> 当前版本：**V1.1**（package `1.1.0`）
 
 给 [dsh-pet](https://github.com/PC2005-cloud/dsh-pet) 的**网页桌宠**配音：桌宠冒气泡 / 碎碎念时，自动把气泡里的文字念出来。
 
@@ -30,6 +30,12 @@
 - 离线音色来自 **Kokoro 中文女声**（Apache-2.0，sherpa-onnx 转换版），一次下载约 **348MB**，8 个音色一起可用。
 
 ## 安装
+
+### 方式零：让 AI Agent 帮你装（复制这一句就行）
+
+> 从这个仓库安装插件：`https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy`，装好加进 DSH desktop profile 的 `dsh.profile.bundles`，然后提醒我重启。
+
+Agent 会执行 `pnpm add github:bbfang2025-cyber/dsh-pet-voice-fishy`。完整的给-agent 指令、验收标准和排错见 [AGENT-INSTALL.md](AGENT-INSTALL.md)。
 
 ### 方式一：插件市场（推荐）
 
