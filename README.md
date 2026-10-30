@@ -1,6 +1,6 @@
 # 大肥鱼语音（dsh-pet-voice-fishy）
 
-> 当前版本：**V1.3.1**（package `1.3.1`）
+> 当前版本：**V1.3.2**（package `1.3.2`）
 
 > **已装旧版（≤1.3.0）？** 在 DSH 的 desktop profile 目录（`%USERPROFILE%\.dsh\profiles\desktop`）执行
 > `pnpm add github:bbfang2025-cyber/dsh-pet-voice-fishy --registry=https://registry.npmmirror.com`，

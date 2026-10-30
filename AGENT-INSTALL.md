@@ -1,6 +1,6 @@
 # 装大肥鱼语音（给 AI Agent 的指令）
 
-> 版本：**V1.3.1**（package `1.3.1`）
+> 版本：**V1.3.2**（package `1.3.2`）
 
 > **已装旧版？** 在 `~/.dsh/profiles/desktop` 执行 `pnpm add github:bbfang2025-cyber/dsh-pet-voice-fishy` 后**完全重启 DSH** 即升级到最新（或双击 `升级到最新.cmd`）。
 > 作用：给 DSH 网页桌宠（dsh-pet）配音。桌宠冒气泡/碎碎念时自动朗读；**右键碎碎念气泡**可再读一遍；点桌宠会回一句互动台词。不修改 dsh-pet 的任何文件。

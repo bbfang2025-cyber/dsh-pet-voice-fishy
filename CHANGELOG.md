@@ -1,5 +1,27 @@
 # Changelog
 
+## V1.3.2 (2026-10-31)
+
+### 修复
+
+- **全部离线音色试听/朗读报 500「External buffers are not allowed」**（Electron/DSH 实测）：
+  sherpa-onnx-node 2.0.1 的 `OfflineTts.generate()` 默认 `enableExternalBuffer: true`，会在 Electron 的
+  Node 构建里调用 `napi_create_external_arraybuffer`，该 API 在 Electron 中不允许（`napi_no_external_buffers_allowed`），
+  于是 native 调用直接抛错，宿主 `/tts` 返回 500。
+- 修复：`lib/tts-worker.cjs` 调用 generate 时显式 `enableExternalBuffer: false`；返回音频先
+  `Float32Array.from()` 拷贝到 V8 堆，再以普通数字数组跨 worker 传递；宿主侧 `Buffer.from()` 还原。
+- 顺带：`/tts` 异常时宿主日志打完整堆栈，JSON 响应附带 `detail`（前几行 stack），便于排障。
+
+### 实测
+
+- 真实 DSH 页面（CDP, 127.0.0.1:53029）：修复前 `/tts` 两音色均 `500 {"error":"External buffers are not allowed"}`；
+  修复后同页面 `200 audio/wav`（鱼鱼酱 36,908B / 鱼鱼姐 35,884B，长句 203,308B / 210,970B）。
+- Electron 44.7（Node 24.21，与 DSH 宿主同版本）独立 worker 测试：修复前抛同样的错，修复后正常出 wav。
+
+### 说明
+
+- 音色包沿用 v1.3.0 的 v2 包，未重传；v1.3.1 及更早资产一律不动。
+
 ## V1.3.1 (2026-10-31)
 
 ### 修复（小白上手体验）
