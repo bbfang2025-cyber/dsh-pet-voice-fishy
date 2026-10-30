@@ -1,11 +1,12 @@
 # 大肥鱼语音（dsh-pet-voice-fishy）
 
-> 当前版本：**V1.2.0**（package `1.2.0`）
+> 当前版本：**V1.3.0**（package `1.3.0`）
 
 给 [dsh-pet](https://github.com/PC2005-cloud/dsh-pet) 的**网页桌宠**配音：桌宠冒气泡 / 碎碎念时，自动把气泡里的文字念出来。
 
 - **10 个音色**：2 个**本地离线复刻音色**（鱼鱼酱 / 鱼鱼姐，无需 Key、无需 GPU）+ 8 个离线中文女声
 - **离线可用**：音色包下载一次后，断网也能说话（鱼鱼酱 / 鱼鱼姐各约 58MB，Kokoro 合集约 348MB）
+- **1.25x 语速**：鱼鱼酱 / 鱼鱼姐默认 1.25 倍速朗读（可在设置页选择其它音色）
 - **朗读频率限制**：自动朗读最小间隔可设「不限 / 30 秒 / 60 秒 / 3 分钟」，**默认 30 秒**，不会一直说话
 - **右键朗读**：右键（或长按）碎碎念气泡，直接再读一遍这条内容，不受频率限制
 - **插件本体很小**：代码约 40KB，模型不进安装包，首次按需下载
@@ -15,8 +16,8 @@
 
 | 音色 | 类型 | 说明 |
 |---|---|---|
-| 鱼鱼酱（默认） | 离线本地 | 本地复刻少女音，一次下载约 58MB，无需 Key |
-| 鱼鱼姐（实验版） | 离线本地 | 本地复刻御姐音，一次下载约 58MB，无需 Key；语料较少，清晰度略逊于鱼鱼酱 |
+| 鱼鱼酱（默认） | 离线本地 | 本地复刻少女音，1.25x 语速，一次下载约 58MB，无需 Key |
+| 鱼鱼姐（实验版） | 离线本地 | 本地复刻御姐音，1.25x 语速，一次下载约 58MB，无需 Key；语料较少，清晰度略逊于鱼鱼酱 |
 | 奶糖鱼 | 离线 | 萌系：音调最高、奶甜软糯 |
 | 果冻鱼 | 离线 | 萌系：清亮带点俏皮 |
 | 泡泡鱼 | 离线 | 萌系：软乎乎的少女音 |
@@ -47,7 +48,7 @@ DSH → 插件市场 → 搜索「大肥鱼语音」或 `dsh-pet-voice-fishy` �
 ### 方式二：Gitee 直链（国内最快，免 VPN）
 
 ```powershell
-Invoke-WebRequest -Uri "https://gitee.com/bbfcyber/dsh-pet-voice-fishy/raw/master/release/dsh-pet-voice-fishy-1.2.0.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
+Invoke-WebRequest -Uri "https://gitee.com/bbfcyber/dsh-pet-voice-fishy/raw/master/release/dsh-pet-voice-fishy-1.3.0.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
 cd $env:USERPROFILE\.dsh\profiles\desktop
 pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.npmmirror.com
 # 再把 dsh-pet-voice-fishy 加进 package.json 的 dsh.profile.bundles
@@ -57,7 +58,7 @@ pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.np
 
 ```powershell
 # 国内如果 GitHub 慢，用 gh-proxy 前缀：https://gh-proxy.com/https://github.com/...
-Invoke-WebRequest -Uri "https://gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.2.0/dsh-pet-voice-fishy-1.2.0.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
+Invoke-WebRequest -Uri "https://gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.3.0/dsh-pet-voice-fishy-1.3.0.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
 cd $env:USERPROFILE\.dsh\profiles\desktop
 pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.npmmirror.com
 # 再把 dsh-pet-voice-fishy 加进 package.json 的 dsh.profile.bundles
@@ -67,7 +68,7 @@ pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.np
 
 ```powershell
 cd $env:USERPROFILE\.dsh\profiles\desktop
-pnpm add file:D:\path\to\dsh-pet-voice-fishy-1.2.0.tgz --registry=https://registry.npmmirror.com
+pnpm add file:D:\path\to\dsh-pet-voice-fishy-1.3.0.tgz --registry=https://registry.npmmirror.com
 # 然后在 profile 的 package.json 里把 "dsh-pet-voice-fishy" 加进 dsh.profile.bundles
 ```
 

@@ -1,11 +1,11 @@
 {
-  "version": 3,
+  "version": 4,
   "defaultVoice": "breeze-yuyujiang",
   "voices": [
     {
       "id": "breeze-yuyujiang",
       "name": "鱼鱼酱",
-      "desc": "本地离线复刻：软糯清甜少女音（一次下载约 58MB，断网可用）",
+      "desc": "本地离线复刻：软糯清甜少女音 · 1.25x 语速（一次下载约 58MB，断网可用）",
       "engine": "local",
       "online": false,
       "tags": [
@@ -15,16 +15,16 @@
       ],
       "params": {
         "pack": "yuyujiang",
-        "model": "dsh-vits-yuyujiang-v1",
+        "model": "dsh-vits-yuyujiang-v2",
         "kind": "vits",
         "sid": 0,
-        "speed": 1
+        "speed": 1.25
       }
     },
     {
       "id": "breeze-yuyujie",
       "name": "鱼鱼姐",
-      "desc": "本地离线复刻（实验版）：温柔御姐音 · 训练语料较少，清晰度略逊于鱼鱼酱（一次下载约 58MB，断网可用）",
+      "desc": "本地离线复刻（实验版）：温柔御姐音 · 1.25x 语速（语料较少，清晰度略逊于鱼鱼酱）",
       "engine": "local",
       "online": false,
       "tags": [
@@ -34,10 +34,10 @@
       ],
       "params": {
         "pack": "yuyujie",
-        "model": "dsh-vits-yuyujie-v1",
+        "model": "dsh-vits-yuyujie-v2",
         "kind": "vits",
         "sid": 0,
-        "speed": 1
+        "speed": 1.25
       }
     },
     {
@@ -199,29 +199,29 @@
       ]
     },
     "yuyujiang": {
-      "name": "鱼鱼酱 · 本地离线音色包",
-      "desc": "本地复刻鱼鱼酱声线，一次下载约 58MB，断网可用、无需 API Key",
-      "model": "dsh-vits-yuyujiang-v1",
+      "name": "鱼鱼酱 · 本地离线音色包 v2",
+      "desc": "清洗语料重训版 + 1.25x 语速，约 58MB，断网可用、无需 API Key",
+      "model": "dsh-vits-yuyujiang-v2",
       "kind": "vits",
       "sizeMB": 58,
       "urls": [
-        "https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.2.0/dsh-vits-yuyujiang-v1.tar.bz2",
-        "https://gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.2.0/dsh-vits-yuyujiang-v1.tar.bz2",
-        "https://ghfast.top/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.2.0/dsh-vits-yuyujiang-v1.tar.bz2",
-        "https://edgeone.gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.2.0/dsh-vits-yuyujiang-v1.tar.bz2"
+        "https://gitee.com/bbfcyber/dsh-pet-voice-fishy/releases/download/v1.3.0/dsh-vits-yuyujiang-v2.tar.bz2",
+        "https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.3.0/dsh-vits-yuyujiang-v2.tar.bz2",
+        "https://gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.3.0/dsh-vits-yuyujiang-v2.tar.bz2",
+        "https://ghfast.top/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.3.0/dsh-vits-yuyujiang-v2.tar.bz2"
       ]
     },
     "yuyujie": {
-      "name": "鱼鱼姐 · 本地离线音色包",
-      "desc": "本地复刻鱼鱼姐声线（实验版：语料较少，清晰度略逊于鱼鱼酱），约 58MB，断网可用、无需 API Key",
-      "model": "dsh-vits-yuyujie-v1",
+      "name": "鱼鱼姐 · 本地离线音色包 v2",
+      "desc": "清洗语料重训版 + 1.25x 语速（实验版：语料较少，清晰度略逊于鱼鱼酱），约 58MB，断网可用",
+      "model": "dsh-vits-yuyujie-v2",
       "kind": "vits",
       "sizeMB": 58,
       "urls": [
-        "https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.2.0/dsh-vits-yuyujie-v1.tar.bz2",
-        "https://gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.2.0/dsh-vits-yuyujie-v1.tar.bz2",
-        "https://ghfast.top/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.2.0/dsh-vits-yuyujie-v1.tar.bz2",
-        "https://edgeone.gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.2.0/dsh-vits-yuyujie-v1.tar.bz2"
+        "https://gitee.com/bbfcyber/dsh-pet-voice-fishy/releases/download/v1.3.0/dsh-vits-yuyujie-v2.tar.bz2",
+        "https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.3.0/dsh-vits-yuyujie-v2.tar.bz2",
+        "https://gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.3.0/dsh-vits-yuyujie-v2.tar.bz2",
+        "https://ghfast.top/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.3.0/dsh-vits-yuyujie-v2.tar.bz2"
       ]
     }
   }

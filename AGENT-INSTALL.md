@@ -1,6 +1,6 @@
 # 装大肥鱼语音（给 AI Agent 的指令）
 
-> 版本：**V1.2.0**（package `1.2.0`）
+> 版本：**V1.3.0**（package `1.3.0`）
 > 作用：给 DSH 网页桌宠（dsh-pet）配音。桌宠冒气泡/碎碎念时自动朗读；**右键碎碎念气泡**可再读一遍；点桌宠会回一句互动台词。不修改 dsh-pet 的任何文件。
 
 ---
@@ -33,7 +33,7 @@ pnpm add github:bbfang2025-cyber/dsh-pet-voice-fishy
 
 ```bash
 cd ~/.dsh/profiles/desktop
-pnpm add https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.2.0/dsh-pet-voice-fishy-1.2.0.tgz
+pnpm add https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.3.0/dsh-pet-voice-fishy-1.3.0.tgz
 # 同样把 "dsh-pet-voice-fishy" 加进 dsh.profile.bundles
 ```
 
@@ -48,7 +48,7 @@ pnpm add https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/downlo
 
 装完必须逐条确认，不要只看安装命令是否成功：
 
-- [ ] `node_modules/dsh-pet-voice-fishy/package.json` 存在且 `version` 是 `1.2.0`
+- [ ] `node_modules/dsh-pet-voice-fishy/package.json` 存在且 `version` 是 `1.3.0`
 - [ ] `node_modules/dsh-pet-voice-fishy/lib/index.js`、`lib/client.js`、`cordis.patch.yml`、`assets/voices.json` 都在
 - [ ] profile 的 `package.json` 里，`dsh.profile.bundles` 数组包含 `"dsh-pet-voice-fishy"`
 - [ ] DSH 重启后，设置页出现「大肥鱼语音」分区
