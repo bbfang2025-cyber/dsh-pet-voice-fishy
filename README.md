@@ -48,7 +48,7 @@ DSH → 插件市场 → 搜索「大肥鱼语音」或 `dsh-pet-voice-fishy` �
 ### 方式二：Gitee 直链（国内最快，免 VPN）
 
 ```powershell
-Invoke-WebRequest -Uri "https://gitee.com/bbfcyber/dsh-pet-voice-fishy/raw/master/release/dsh-pet-voice-fishy-1.3.0.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
+Invoke-WebRequest -Uri "https://gitee.com/bbfcyber/dsh-pet-voice-fishy/raw/master/release/v130/dsh-pet-voice-fishy-1.3.0.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
 cd $env:USERPROFILE\.dsh\profiles\desktop
 pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.npmmirror.com
 # 再把 dsh-pet-voice-fishy 加进 package.json 的 dsh.profile.bundles
