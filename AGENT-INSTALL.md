@@ -33,10 +33,7 @@ pnpm add github:bbfang2025-cyber/dsh-pet-voice-fishy
 
 ```bash
 cd ~/.dsh/profiles/desktop
-# 国内（快）
-pnpm add https://gitee.com/bbfcyber/dsh-pet-voice-fishy/releases/download/v1.1.2/dsh-pet-voice-fishy-1.1.2.tgz
-# 或者 GitHub
-# pnpm add https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.1.2/dsh-pet-voice-fishy-1.1.2.tgz
+pnpm add https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.0.0/dsh-pet-voice-fishy-1.0.0.tgz
 # 同样把 "dsh-pet-voice-fishy" 加进 dsh.profile.bundles
 ```
 
