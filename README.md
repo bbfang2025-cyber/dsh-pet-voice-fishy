@@ -1,6 +1,6 @@
 # 大肥鱼语音（dsh-pet-voice-fishy）
 
-> 当前版本：**V1.1**（package `1.1.0`）
+> 当前版本：**V1.1.2**（package `1.1.2`）
 
 给 [dsh-pet](https://github.com/PC2005-cloud/dsh-pet) 的**网页桌宠**配音：桌宠冒气泡 / 碎碎念时，自动把气泡里的文字念出来。
 
@@ -10,6 +10,19 @@
 - **右键朗读**：右键（或长按）碎碎念气泡，直接再读一遍这条内容，不受频率限制
 - **插件本体很小**：代码约 40KB，模型不进安装包，首次按需下载
 - **不修改 dsh-pet 的任何文件**，装完即用
+
+## 下载
+
+| 站点 | 地址 |
+|---|---|
+| **Gitee（国内推荐，快）** | https://gitee.com/bbfcyber/dsh-pet-voice-fishy |
+| GitHub（原始仓库） | https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy |
+
+**直接下载 v1.1.2 安装包**（点开即下，不用登录）：
+
+- Gitee：https://gitee.com/bbfcyber/dsh-pet-voice-fishy/releases/download/v1.1.2/dsh-pet-voice-fishy-1.1.2.tgz
+- GitHub：https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.1.2/dsh-pet-voice-fishy-1.1.2.tgz
+- GitHub 慢的话，在链接前面加 `https://gh-proxy.com/` 前缀加速
 
 ## 音色
 
@@ -28,24 +41,32 @@
 
 - 在线音色走 [BreezeBlue](https://breezeblue.ai) 开发者 API，需要到 Breeze 后台创建 API Key（`brz_` 开头），在插件设置里粘贴；
 - 离线音色来自 **Kokoro 中文女声**（Apache-2.0，sherpa-onnx 转换版），一次下载约 **348MB**，8 个音色一起可用。
+- **没有 API Key 也不会哑**：默认音色是「鱼鱼酱」（在线），但检测到没填 Key 时会自动降级到第一个离线女声，装完就能出声。
 
 ## 安装
 
 ### 方式零：让 AI Agent 帮你装（复制这一句就行）
 
-> 从这个仓库安装插件：`https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy`，装好加进 DSH desktop profile 的 `dsh.profile.bundles`，然后提醒我重启。
+> 从这个仓库安装插件：`https://gitee.com/bbfcyber/dsh-pet-voice-fishy`（国内）或 `https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy`（海外），装好加进 DSH desktop profile 的 `dsh.profile.bundles`，然后提醒我重启。
 
-Agent 会执行 `pnpm add github:bbfang2025-cyber/dsh-pet-voice-fishy`。完整的给-agent 指令、验收标准和排错见 [AGENT-INSTALL.md](AGENT-INSTALL.md)。
+Agent 会执行下面其中一条（国内走 Gitee 更快）：
 
-### 方式一：插件市场（推荐）
+```bash
+pnpm add https://gitee.com/bbfcyber/dsh-pet-voice-fishy.git          # 国内
+pnpm add github:bbfang2025-cyber/dsh-pet-voice-fishy                 # 海外
+```
 
-DSH → 插件市场 → 搜索「大肥鱼语音」或 `dsh-pet-voice-fishy` → 安装 → 重启 DSH。
+完整的给-agent 指令、验收标准和排错见 [AGENT-INSTALL.md](AGENT-INSTALL.md)。
 
-### 方式二：GitHub 直链一键安装（推荐，国内可用 gh-proxy 加速）
+### 方式一：插件市场（**暂未上架 npm，搜不到，请用方式二**）
+
+> 插件市场按 npm 索引，本包还没发布到 npm，所以现在搜「大肥鱼语音」是搜不到的。等上架后这里会更新。
+
+### 方式二：直接下载安装包（**推荐**，国内走 Gitee）
 
 ```powershell
-# 国内下载下面这个 tgz 如果慢，可以在链接前加 https://gh-proxy.com/ 前缀
-Invoke-WebRequest -Uri "https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.0.0/dsh-pet-voice-fishy-1.0.0.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
+# 国内用 Gitee（快）；GitHub 慢的话在链接前加 https://gh-proxy.com/ 前缀
+Invoke-WebRequest -Uri "https://gitee.com/bbfcyber/dsh-pet-voice-fishy/releases/download/v1.1.2/dsh-pet-voice-fishy-1.1.2.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
 cd $env:USERPROFILE\.dsh\profiles\desktop
 pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.npmmirror.com
 # 再把 dsh-pet-voice-fishy 加进 package.json 的 dsh.profile.bundles
@@ -55,7 +76,7 @@ pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.np
 
 ```powershell
 cd $env:USERPROFILE\.dsh\profiles\desktop
-pnpm add file:D:\path\to\dsh-pet-voice-fishy-1.0.0.tgz --registry=https://registry.npmmirror.com
+pnpm add file:D:\path\to\dsh-pet-voice-fishy-1.1.2.tgz --registry=https://registry.npmmirror.com
 # 然后在 profile 的 package.json 里把 "dsh-pet-voice-fishy" 加进 dsh.profile.bundles
 ```
 
