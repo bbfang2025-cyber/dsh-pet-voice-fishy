@@ -1,6 +1,10 @@
 # 大肥鱼语音（dsh-pet-voice-fishy）
 
-> 当前版本：**V1.3.0**（package `1.3.0`）
+> 当前版本：**V1.3.1**（package `1.3.1`）
+
+> **已装旧版（≤1.3.0）？** 在 DSH 的 desktop profile 目录（`%USERPROFILE%\.dsh\profiles\desktop`）执行
+> `pnpm add github:bbfang2025-cyber/dsh-pet-voice-fishy --registry=https://registry.npmmirror.com`，
+> 然后**完全退出并重新打开 DSH**（不是刷新页面）即升级到最新；或双击仓库里的 `升级到最新.cmd`。
 
 给 [dsh-pet](https://github.com/PC2005-cloud/dsh-pet) 的**网页桌宠**配音：桌宠冒气泡 / 碎碎念时，自动把气泡里的文字念出来。
 
@@ -48,7 +52,7 @@ DSH → 插件市场 → 搜索「大肥鱼语音」或 `dsh-pet-voice-fishy` �
 ### 方式二：Gitee 直链（国内最快，免 VPN）
 
 ```powershell
-Invoke-WebRequest -Uri "https://gitee.com/bbfcyber/dsh-pet-voice-fishy/raw/master/release/v130/dsh-pet-voice-fishy-1.3.0.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
+Invoke-WebRequest -Uri "https://gitee.com/bbfcyber/dsh-pet-voice-fishy/raw/master/release/v130/dsh-pet-voice-fishy-1.3.1.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
 cd $env:USERPROFILE\.dsh\profiles\desktop
 pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.npmmirror.com
 # 再把 dsh-pet-voice-fishy 加进 package.json 的 dsh.profile.bundles
@@ -58,7 +62,7 @@ pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.np
 
 ```powershell
 # 国内如果 GitHub 慢，用 gh-proxy 前缀：https://gh-proxy.com/https://github.com/...
-Invoke-WebRequest -Uri "https://gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.3.0/dsh-pet-voice-fishy-1.3.0.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
+Invoke-WebRequest -Uri "https://gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.3.1/dsh-pet-voice-fishy-1.3.1.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
 cd $env:USERPROFILE\.dsh\profiles\desktop
 pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.npmmirror.com
 # 再把 dsh-pet-voice-fishy 加进 package.json 的 dsh.profile.bundles
@@ -68,7 +72,7 @@ pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.np
 
 ```powershell
 cd $env:USERPROFILE\.dsh\profiles\desktop
-pnpm add file:D:\path\to\dsh-pet-voice-fishy-1.3.0.tgz --registry=https://registry.npmmirror.com
+pnpm add file:D:\path\to\dsh-pet-voice-fishy-1.3.1.tgz --registry=https://registry.npmmirror.com
 # 然后在 profile 的 package.json 里把 "dsh-pet-voice-fishy" 加进 dsh.profile.bundles
 ```
 
