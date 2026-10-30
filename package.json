@@ -1,7 +1,7 @@
 {
   "name": "dsh-pet-voice-fishy",
-  "version": "1.1.2",
-  "description": "大肥鱼语音：让 DSH 桌宠的气泡开口说话。在线 Breeze 自定义音色 + 离线 Kokoro 中文女声（模型按需下载，断网可用）。",
+  "version": "1.2.0",
+  "description": "大肥鱼语音：给 DSH 桌宠的气泡开口说话。鱼鱼酱 / 鱼鱼姐本地离线音色（无需 Key、断网可用）+ 8 个离线 Kokoro 中文女声。",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
@@ -37,7 +37,10 @@
     "desktop-pet",
     "offline",
     "kokoro",
-    "sherpa-onnx"
+    "sherpa-onnx",
+    "vits",
+    "piper",
+    "voice-clone"
   ],
   "license": "MIT",
   "engines": {

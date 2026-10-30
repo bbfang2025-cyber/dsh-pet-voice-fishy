@@ -1,6 +1,6 @@
 # 装大肥鱼语音（给 AI Agent 的指令）
 
-> 版本：**V1.0**（package `1.0.0`）
+> 版本：**V1.2.0**（package `1.2.0`）
 > 作用：给 DSH 网页桌宠（dsh-pet）配音。桌宠冒气泡/碎碎念时自动朗读；**右键碎碎念气泡**可再读一遍；点桌宠会回一句互动台词。不修改 dsh-pet 的任何文件。
 
 ---
@@ -33,7 +33,7 @@ pnpm add github:bbfang2025-cyber/dsh-pet-voice-fishy
 
 ```bash
 cd ~/.dsh/profiles/desktop
-pnpm add https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.0.0/dsh-pet-voice-fishy-1.0.0.tgz
+pnpm add https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.2.0/dsh-pet-voice-fishy-1.2.0.tgz
 # 同样把 "dsh-pet-voice-fishy" 加进 dsh.profile.bundles
 ```
 
@@ -48,13 +48,13 @@ pnpm add https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/downlo
 
 装完必须逐条确认，不要只看安装命令是否成功：
 
-- [ ] `node_modules/dsh-pet-voice-fishy/package.json` 存在且 `version` 是 `1.0.0`
+- [ ] `node_modules/dsh-pet-voice-fishy/package.json` 存在且 `version` 是 `1.2.0`
 - [ ] `node_modules/dsh-pet-voice-fishy/lib/index.js`、`lib/client.js`、`cordis.patch.yml`、`assets/voices.json` 都在
 - [ ] profile 的 `package.json` 里，`dsh.profile.bundles` 数组包含 `"dsh-pet-voice-fishy"`
 - [ ] DSH 重启后，设置页出现「大肥鱼语音」分区
 - [ ] 有 `~/.dsh/dsh-pet-voice/config.json`（第一次加载会自动创建）
 
-> 可选依赖 `sherpa-onnx-node` 用于离线音色。装不上也不影响在线音色（Breeze）和界面，只是离线女声不可用。
+> 可选依赖 `sherpa-onnx-node` 用于离线音色。装不上不影响界面，但所有离线音色（含鱼鱼酱 / 鱼鱼姐）不可用；在线 Breeze 音色不受影响。
 
 ---
 
@@ -65,7 +65,7 @@ pnpm add https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/downlo
 | 气泡朗读开关 | 设置 → 大肥鱼语音 | 开 |
 | 音量 | 同上 | 0.8 |
 | 朗读频率（自动朗读最小间隔） | 同上 | **30 秒**（可选 不限 / 30 秒 / 60 秒 / 3 分钟） |
-| 音色 | 同上 | 鱼鱼酱（在线） |
+| 音色 | 同上 | 鱼鱼酱（本地离线） |
 
 **使用方式**
 
@@ -76,21 +76,22 @@ pnpm add https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/downlo
 
 **音色**
 
-- 2 个在线 Breeze 自定义音色：需要自己填 API Key（设置页里粘贴）
+- 2 个本地离线复刻音色（鱼鱼酱 / 鱼鱼姐）：首次选用时下载约 58MB 音色包，**不需要 API Key、断网可用**；鱼鱼姐为实验版（语料较少，清晰度略逊）
 - 8 个离线中文女声：首次选用时自动下载音色包（约 348MB，多镜像、断点续传），之后断网可用
+- 可选：填 Breeze API Key 后仍可使用 Breeze 在线音色（与本地音色互不影响）
 
 ---
 
 ## 常见问题
 
 **右键气泡没反应？**
-先确认装的是 `1.0.0` 或更新版本（0.2.0 及更早版本只支持左键）。用 `node -e "console.log(require('./node_modules/dsh-pet-voice-fishy/package.json').version)"` 检查。
+先确认装的是 `1.2.0` 或更新版本（0.2.0 及更早版本只支持左键）。用 `node -e "console.log(require('./node_modules/dsh-pet-voice-fishy/package.json').version)"` 检查。
 
 **气泡出现了但不出声？**
 1. 设置页确认「气泡朗读」是开的、音量不为 0；
 2. 浏览器需要先有一次用户交互（点页面任意处）才能播放音频；
 3. 看控制台有没有 `[dsh-pet-voice]` 开头的警告；
-4. 在线音色需要网络和有效的 Breeze Key；离线音色需要等音色包下载完。
+4. 本地/离线音色需要等音色包下载完（设置页有进度条）；在线音色需要网络和有效 Breeze Key。
 
 **和别的语音插件冲突？**
 本插件的数据目录是 `~/.dsh/dsh-pet-voice/`。如果同时装了别的同名插件，配置会互相覆盖，建议只保留一个。
