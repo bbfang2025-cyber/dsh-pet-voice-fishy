@@ -1,6 +1,6 @@
 # 大肥鱼语音（dsh-pet-voice-fishy）
 
-> 当前版本：**V1.3.2**（package `1.3.2`）
+> 当前版本：**V1.3.3**（package `1.3.3`）
 
 > **已装旧版（≤1.3.0）？** 在 DSH 的 desktop profile 目录（`%USERPROFILE%\.dsh\profiles\desktop`）执行
 > `pnpm add github:bbfang2025-cyber/dsh-pet-voice-fishy --registry=https://registry.npmmirror.com`，
@@ -52,7 +52,7 @@ DSH → 插件市场 → 搜索「大肥鱼语音」或 `dsh-pet-voice-fishy` �
 ### 方式二：Gitee 直链（国内最快，免 VPN）
 
 ```powershell
-Invoke-WebRequest -Uri "https://gitee.com/bbfcyber/dsh-pet-voice-fishy/raw/master/release/v130/dsh-pet-voice-fishy-1.3.1.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
+Invoke-WebRequest -Uri "https://gitee.com/bbfcyber/dsh-pet-voice-fishy/raw/master/release/dsh-pet-voice-fishy-1.3.3.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
 cd $env:USERPROFILE\.dsh\profiles\desktop
 pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.npmmirror.com
 # 再把 dsh-pet-voice-fishy 加进 package.json 的 dsh.profile.bundles
@@ -62,7 +62,7 @@ pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.np
 
 ```powershell
 # 国内如果 GitHub 慢，用 gh-proxy 前缀：https://gh-proxy.com/https://github.com/...
-Invoke-WebRequest -Uri "https://gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.3.1/dsh-pet-voice-fishy-1.3.1.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
+Invoke-WebRequest -Uri "https://gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.3.3/dsh-pet-voice-fishy-1.3.3.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
 cd $env:USERPROFILE\.dsh\profiles\desktop
 pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.npmmirror.com
 # 再把 dsh-pet-voice-fishy 加进 package.json 的 dsh.profile.bundles
@@ -121,11 +121,34 @@ pnpm add file:D:\path\to\dsh-pet-voice-fishy-1.3.1.tgz --registry=https://regist
 GET  /dsh-pet-voice/state                    → 配置、音色、音色包状态
 POST /dsh-pet-voice/state                    → 修改配置（enabled / volume / voiceId / breezeApiKey）
 GET  /dsh-pet-voice/tts?voice=&text=         → audio/mpeg（在线）或 audio/wav（离线）
-GET  /dsh-pet-voice/packs                    → 音色包安装状态
+GET  /dsh-pet-voice/packs                    → 音色包安装状态（数组）
 POST /dsh-pet-voice/packs/install?id=yuyujiang  → 开始下载/安装音色包
 GET  /dsh-pet-voice/packs/progress?id=yuyujiang → 下载进度
 GET  /dsh-pet-voice/breeze/voices            → 列出 Breeze 账号里的音色
 ```
+
+
+### `GET /dsh-pet-voice/state` 响应（v1.3.3 起）
+
+```jsonc
+{
+  "version": "1.3.3",
+  "config": { "enabled": true, "volume": 0.8, "voiceId": "breeze-yuyujiang" },
+  "voices": [
+    { "id": "breeze-yuyujiang", "name": "鱼鱼酱", "engine": "local", "tags": ["离线", "少女", "默认"],
+      "pack": "yuyujiang", "available": true, "needsBreezeKey": false, "needsDownload": false }
+  ],
+  "packs": [ /* v1.3.3 起固定为数组；旧版为对象 {id: pack} */
+    { "id": "yuyujiang", "name": "…", "desc": "…", "sizeMB": 58, "installed": true, "progress": null }
+  ],
+  "engines": { "local": true }
+}
+```
+
+- `packs` 现在是**数组**（`[{id,name,desc,sizeMB,installed,progress}]`），`/packs` 接口同样返回数组；
+  第三方集成可直接 `state.packs.map(...)`，不再需要 `Object.values()`。
+- 默认音色规则：config 里没有 voiceId（全新安装）时取第一个非实验版本地音色（当前是 `breeze-yuyujiang`）；
+  config 里已有 voiceId 时保持不变。
 
 ## 已知限制
 

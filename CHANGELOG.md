@@ -1,5 +1,18 @@
 # Changelog
 
+## V1.3.3 (2026-10-31)
+
+### 修复 / 调整
+
+- **默认音色改为鱼鱼酱**：全新安装（config 里还没有 voiceId）时，默认取「第一个非实验版的本地音色」，
+  当前目录即 `breeze-yuyujiang`；**config.json 里已有用户选过的 voiceId 时保持不变**（例如选了鱼鱼姐不会被覆盖）。
+- **`/state` 的 `packs` 字段统一为数组**：以前是对象 `{id: pack}`，第三方/自查脚本写 `(state.packs||[]).map`
+  会报 "is not a function"；现在 `packs` 是 `[{id,name,desc,sizeMB,installed,progress}]` 数组（`/packs` 接口同样返回数组），
+  前端同时兼容新旧两种形状；README 的 API 说明已补上响应结构。
+
+### 说明
+
+- 音色包与已发布资产（v1.3.2 及更早）一律不动。
 ## V1.3.2 (2026-10-31)
 
 ### 修复
