@@ -1,6 +1,6 @@
 # 大肥鱼语音（dsh-pet-voice-fishy）
 
-> 当前版本：**V1.3.3**（package `1.3.3`）
+> 当前版本：**V1.4.0**（package `1.4.0`）
 
 > **已装旧版（≤1.3.0）？** 在 DSH 的 desktop profile 目录（`%USERPROFILE%\.dsh\profiles\desktop`）执行
 > `pnpm add github:bbfang2025-cyber/dsh-pet-voice-fishy --registry=https://registry.npmmirror.com`，
@@ -52,7 +52,7 @@ DSH → 插件市场 → 搜索「大肥鱼语音」或 `dsh-pet-voice-fishy` �
 ### 方式二：Gitee 直链（国内最快，免 VPN）
 
 ```powershell
-Invoke-WebRequest -Uri "https://gitee.com/bbfcyber/dsh-pet-voice-fishy/raw/master/release/dsh-pet-voice-fishy-1.3.3.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
+Invoke-WebRequest -Uri "https://gitee.com/bbfcyber/dsh-pet-voice-fishy/raw/master/release/latest/dsh-pet-voice-fishy.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
 cd $env:USERPROFILE\.dsh\profiles\desktop
 pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.npmmirror.com
 # 再把 dsh-pet-voice-fishy 加进 package.json 的 dsh.profile.bundles
@@ -62,7 +62,7 @@ pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.np
 
 ```powershell
 # 国内如果 GitHub 慢，用 gh-proxy 前缀：https://gh-proxy.com/https://github.com/...
-Invoke-WebRequest -Uri "https://gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.3.3/dsh-pet-voice-fishy-1.3.3.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
+Invoke-WebRequest -Uri "https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/latest/download/dsh-pet-voice-fishy.tgz" -OutFile "$env:TEMP\dsh-pet-voice-fishy.tgz"
 cd $env:USERPROFILE\.dsh\profiles\desktop
 pnpm add "file:$env:TEMP\dsh-pet-voice-fishy.tgz" --registry=https://registry.npmmirror.com
 # 再把 dsh-pet-voice-fishy 加进 package.json 的 dsh.profile.bundles
@@ -149,6 +149,24 @@ GET  /dsh-pet-voice/breeze/voices            → 列出 Breeze 账号里的音�
   第三方集成可直接 `state.packs.map(...)`，不再需要 `Object.values()`。
 - 默认音色规则：config 里没有 voiceId（全新安装）时取第一个非实验版本地音色（当前是 `breeze-yuyujiang`）；
   config 里已有 voiceId 时保持不变。
+
+
+### v1.4.0 新增：音色包缺失自动回退
+
+- `GET /dsh-pet-voice/tts?voice=&text=`：若该音色包未安装，会自动用第一个已安装可用的本地音色合成，
+  返回 **200** 并带响应头 `X-DSH-Pet-Voice-Fallback: 1`、`X-DSH-Pet-Voice-Voice`（实际音色 id）、
+  `X-DSH-Pet-Voice-Voice-Name`（URL 编码的名字）、`X-DSH-Pet-Voice-Requested`（请求的音色 id）。
+  后台同时下载请求的包；若一个已安装的本地音色都没有，才返回 503 JSON（含 `progress.percent` 与 `error`）。
+- 前端在回退与失败时都会在页面右下角给出可见提示，不再静默。
+
+### 永久安装地址（永不失效）
+
+```
+https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/latest/download/dsh-pet-voice-fishy.tgz
+```
+
+GitHub Release 每次发版都会额外上传固定文件名 `dsh-pet-voice-fishy.tgz`，`releases/latest/download/...` 永远指向最新正式版。
+Gitee 镜像同步更新：`https://gitee.com/bbfcyber/dsh-pet-voice-fishy/raw/master/release/latest/dsh-pet-voice-fishy.tgz`
 
 ## 已知限制
 

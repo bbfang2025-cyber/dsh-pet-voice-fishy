@@ -1,5 +1,28 @@
 # Changelog
 
+## V1.4.0 (2026-11-04)
+
+### 修复「很多人没声音」（防御式）
+
+背景数据：GitHub 安装包下载 v1.3.0 = 1026 次（该版本在 Electron 下 `/tts` 必 500），v1.3.2 = 2，v1.3.3 = 222；
+音色包下载：鱼鱼酱 169 次、鱼鱼姐 34 次，而 v1.3.0 默认音色是鱼鱼姐（实验版）→ 多数用户没装鱼鱼姐包 → `/tts` 503 被前端静默吞掉。
+
+- **音色包缺失自动回退**：请求的音色包未安装时，宿主不再 503 结束，而是自动改用「第一个已安装可用的本地音色」
+  （优先非实验版）合成，返回 200 并带 `X-DSH-Pet-Voice-Fallback: 1`、`X-DSH-Pet-Voice-Voice`、
+  `X-DSH-Pet-Voice-Voice-Name`、`X-DSH-Pet-Voice-Requested` 响应头；同时后台继续下载用户原本选的包。
+- **错误可见**：前端任何 `!res.ok` 都会在页面右下角显示「音色包下载中 x%」或「朗读失败：原因」，不再静默吞掉；
+  音色包下载中导致的 503 会自动轮询，下载完成后把刚才那句话读出来（无需用户再操作）。
+- **首装预下载**：插件加载后 0.8s 就在后台预下载默认音色包（带进度），不再等用户点试听。
+
+### 永久安装地址
+
+- GitHub（始终指向最新正式版）：`https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/latest/download/dsh-pet-voice-fishy.tgz`
+- Gitee 镜像：`https://gitee.com/bbfcyber/dsh-pet-voice-fishy/raw/master/release/latest/dsh-pet-voice-fishy.tgz`
+
+### 说明
+
+- 音色包与 v1.3.x 相同（v2 包），未重传；v1.3.3 及更早资产一律不动。
+
 ## V1.3.3 (2026-10-31)
 
 ### 修复 / 调整
