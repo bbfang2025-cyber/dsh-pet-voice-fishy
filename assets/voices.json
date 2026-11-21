@@ -1,6 +1,7 @@
 {
-  "version": 4,
-  "defaultVoice": "breeze-yuyujiang",
+  "version": "1.6.0",
+  "schemaVersion": 8,
+  "defaultVoice": "yujie-lib",
   "voices": [
     {
       "id": "breeze-yuyujiang",
@@ -10,8 +11,7 @@
       "online": false,
       "tags": [
         "离线",
-        "少女",
-        "默认"
+        "少女"
       ],
       "params": {
         "pack": "yuyujiang",
@@ -38,6 +38,25 @@
         "kind": "vits",
         "sid": 0,
         "speed": 1.25
+      }
+    },
+    {
+      "id": "yujie-lib",
+      "name": "御姐·原声库",
+      "desc": "本地原声台词池：414 条（337 日常碎碎念 + 27 表情包固定句 + 50 点击互动），命中直接播放（约 4MB）；未命中自动走离线模型",
+      "engine": "library",
+      "online": false,
+      "default": true,
+      "tags": [
+        "离线",
+        "原声",
+        "库",
+        "默认"
+      ],
+      "params": {
+        "pack": "yujie-lib",
+        "speed": 1,
+        "fallbackVoice": "breeze-yuyujie"
       }
     }
   ],
@@ -67,6 +86,28 @@
         "https://gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.3.0/dsh-vits-yuyujie-v2.tar.bz2",
         "https://ghfast.top/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.3.0/dsh-vits-yuyujie-v2.tar.bz2"
       ]
+    },
+    "yujie-lib": {
+      "name": "御姐 · 原声台词库 v3（台词池）",
+      "desc": "337 日常 + 27 表情包 + 50 点击互动（共 414 条，Opus 32kbps 单声道、源 24kHz），约 4MB，命中直接播放",
+      "model": "dsh-lib-yujie-v3",
+      "kind": "library",
+      "engine": "phrase-library",
+      "count": 414,
+      "sizeMB": 4,
+      "sha256": "b463232b59a644836a04bfe31c046c4a5bc4bf0da010c426d426bf278bad3e86",
+      "urls": [
+        "https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.6.0/dsh-lib-yujie-v3.tar.bz2",
+        "https://gh-proxy.com/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.6.0/dsh-lib-yujie-v3.tar.bz2",
+        "https://ghfast.top/https://github.com/bbfang2025-cyber/dsh-pet-voice-fishy/releases/download/v1.6.0/dsh-lib-yujie-v3.tar.bz2",
+        "https://gitee.com/bbfcyber/dsh-pet-voice-fishy/releases/download/v1.6.0/dsh-lib-yujie-v3.tar.bz2",
+        "https://gitee.com/bbfcyber/dsh-pet-voice-fishy/raw/master/release/latest/dsh-lib-yujie-v3.tar.bz2"
+      ],
+      "version": 3,
+      "memeCount": 27,
+      "contentSha256": "8a2a306f8d55a07ee26778bac1488bec28b5ec9aade85f6e6e5c6039fd4d9d90",
+      "chatterCount": 337,
+      "interactCount": 50
     }
   }
 }

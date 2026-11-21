@@ -1,5 +1,66 @@
 # Changelog
 
+## V1.6.0 (2026-11-21)
+
+### 发版摘要
+
+- 版本：package / `assets/voices.json` = **1.6.0**；默认音色改为 **`yujie-lib`「御姐·原声库」**（414 条原声台词池 v3，库优先 / 模型兜底）；
+- **修复「无法试听」**：库包未安装时 `/preview`（及 `/tts`）返回 **503 + JSON `{action:"installing", progress, code:"LIBRARY_INSTALLING"}`** 并自动触发安装；
+  客户端显示「原声库下载中 x%」，装完**自动重试试听一次**，失败给人话原因；不再静默回退鱼鱼姐模型；
+- 下载换源链：**GitHub（固定名）→ gh-proxy → ghfast → Gitee（release / raw）**；全部失败时明确提示「所有镜像下载失败：…」；
+- 语料入库：`assets/corpus/`（`corpus538.txt` 337 / `corpus_meme27.txt` 27 / `corpus_interact50.txt` 50 + README，**只有文本，不含音频**）；
+- 发布资产：`dsh-pet-voice-fishy-1.6.0.tgz`、固定名 `dsh-pet-voice-fishy.tgz`、`dsh-lib-yujie-v3.tar.bz2`、`dsh-corpus-v1.zip`；GitHub / Gitee 双站。
+
+### 修复：点击桌宠「第一句新、后面全旧（鱼鱼姐）」
+
+- 根因：配音插件客户端 `installPetClick()` 里还有一份硬编码 `CLICK_LINES`（5 句旧台词），每次点击都强制朗读它 →
+  `/tts` 未命中库 → 回退鱼鱼姐模型；首次点击可能被新气泡/碎碎念掩盖而显得"第一句是新的"。
+- 修复：点击 `.dsh-pet-hit` 改为 `GET /dsh-pet-voice/api/library/pick?kind=interact` 从 `pools/interact.txt` 抽句
+  （宿主侧最近 10 次不重复）→ `POST /dsh-pet-7340/broadcast` 写同句气泡 → 强制朗读同句；不调 AI；
+  池不可用时回退原 `CLICK_LINES` 行为，不报错。
+- 撤回上一轮对 dsh-pet `client.js` 的 `/interact` 调用补丁（避免双气泡）；dsh-pet 的 `index.js` 碎碎念补丁保留，
+  `/interact` 宿主路由保留但不再被点击使用；`pools/config.json`、`meme_lines.json` 解析改为容忍 UTF-8 BOM。
+- 新增宿主接口 `GET /dsh-pet-voice/api/library/pick?kind=interact|chatter`。
+
+### 原声库 v3（414 条）+ 台词池模式
+
+- 库包升级为 `dsh-lib-yujie-v3`：**414 条 = 337 日常碎碎念（chatter）+ 27 表情包固定句（meme）+ 50 点击互动（interact，I01-I50）**，
+  Opus 32kbps 单声道（源 24kHz），tar.bz2 3,911 MiB；`index.json` 每条带 `kind`，interact 条目 `kind: "interact"`；
+- 库安装 / 启动时自动同步台词池到 `$DSH_HOME/dsh-pet-voice/pools/`：`chatter.txt`(337) / `interact.txt`(50) / `meme.json`(27) / `config.json`；
+- 已装 v2（364 条）按 voices.json 自动升级 v3；`/api/library/status` 增加台词池文件计数；
+- **dsh-pet 第二轮本地补丁**：碎碎念 meme 固定句 → chatter 池随机（不调 AI）；点击桌宠新增 `POST /dsh-pet-7340/interact`
+  从 interact 池随机抽句写气泡（不调 AI）；池缺失/为空回退原逻辑；最近 10 次抽句不重复；`usePhrasePool` / `memeFirst` 开关；
+- `voices.json` 升到 version 7。
+
+## 未发布（v2，本地工作副本，1.5.0 线）
+
+### 原声库扩到 364 句 + 表情包固定台词
+
+- 库包升级为 `dsh-lib-yujie-v2`：**364 条 = 337 日常句（0001-0337）+ 27 表情包固定台词（M01-M27）**，
+  Opus 32kbps 单声道（源 24kHz），tar.bz2 约 3.5MB；meme 条目在 `index.json` 带 `meme: "<表情包名>"` 字段；
+- 库安装支持**自动升级**（已装 337 条 v1 时，按 voices.json 的 count/version/contentSha256 自动升到 364 条；
+  升级先备份旧目录、校验通过才删，失败自动回滚）；
+- 库安装 / 启动时自动同步 `$DSH_HOME/dsh-pet-voice/meme_lines.json`（表情包名 → 固定台词，27 条）；
+- 命中响应头新增 `X-DSH-Pet-Voice-Meme`；`GET /api/library/status` 增加 `version` / `contentSha256`；
+- **dsh-pet 本地安装副本补丁**：碎碎念抽到表情包时先查 `meme_lines.json`，命中跳过 AI 直接返回固定句
+  （`generateWhisper` 前置分支）；文件缺失/JSON 损坏/名称不匹配回退原 AI 逻辑；改动前备份 `.bak-<时间戳>`；
+- `voices.json` 升到 version 6。
+
+## 未发布（本地工作副本，1.5.0 线）
+
+### 原声台词库包（方案 A）+ 库优先、模型兜底
+
+- 新增音色 `yujie-lib`「御姐·原声库」（`engine: "library"`，包 `yujie-lib`）：337 条御姐原声，
+  Opus 32kbps 单声道（源 24kHz），库包 `dsh-lib-yujie-v1.tar.bz2` 约 3.4MB；
+- `/tts` 改为**先查库**：文本归一化（NFKC 全半角统一 → 去空白 → 去标点/符号/表情 → 小写）后精确匹配 `index.json`；
+  命中直接返回库内 `audio/ogg`，未命中再走原有 VITS 模型（选库音色时优先鱼鱼姐）；
+- 新增响应头 `X-DSH-Pet-Voice-Source: library|model`，便于验证命中路径；
+- 新增 `GET /api/library/stats`（别名 `/dsh-pet-voice/api/library/stats`）返回 `{total,hits,misses}`；
+  `GET /api/library/status`、`POST /api/library/install`；库包装到 `$DSH_HOME/dsh-pet-voice/models/yujie-lib/`，
+  安装时校验 tar.bz2 sha256 与包内 manifest 内容哈希；
+- 库未命中且无可用模型时返回 404 JSON（`code: "LIBRARY_MISS"`、`source: "none"`）；
+- 新增 config `libraryFirst`（默认 `true`）；`voices.json` 升到 version 5。
+
 ## V1.5.0 (2026-11-06)
 
 ### 音色精简
